@@ -790,6 +790,32 @@ docker-compose push
 
 官網也解釋的沒有很清楚 [https://docs.docker.com/compose/reference/push/](https://docs.docker.com/compose/reference/push/)
 
+### docker-compose up/down 和 restart 的差異
+
+先來談 `docker-compose up/down`,
+
+假如今天你修改了 `docker-compose.yml` 又或是更新了 image,
+
+當你要重建 docker , 有幾種方法,
+
+方法一.
+
+先停止 container, 執行 `docker-compose down` 再執行 `docker-compose up`.
+
+方法二.
+
+不需要停止 container, 直接執行 `docker-compose up`.
+
+(他會自動幫你重建, 很方便, 不需要多一步先關閉 container )
+
+結論, 只要你的 `docker-compose.yml` 有任何變動, 一定要執行 `docker-compose up` 才會生效.
+
+再來談 `docker-compose restart`,
+
+請看官方文件 [docker-compose restart](https://docs.docker.com/compose/reference/restart/), 如果你對 `docker-compose.yml` 修改, 然後使用這個指令, 是**不會**生效的,
+
+但是, 如果你是改 code (可能是 python code), 那這個指令是有效的.
+
 ### docker-compose networks
 
 * [Youtube Tutorial - docker-compose networks 說明](https://youtu.be/wmV9WfkpyGk)
