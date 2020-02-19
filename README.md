@@ -1,5 +1,4 @@
 # docker-tutorial
-###na181920###
 
  Docker 基本教學 - 從無到有 Docker-Beginners-Guide
 
